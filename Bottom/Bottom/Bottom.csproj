@@ -7,9 +7,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
+    <DocumentationFile>r:\Bottom\Bottom\Bottom\Bottom.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />  
+    <PackageReference Include="Xamarin.Forms" Version="3.6.0.293080" />  
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Code\" />
   </ItemGroup>
 </Project>

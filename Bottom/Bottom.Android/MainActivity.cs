@@ -1,17 +1,32 @@
-﻿using System;
+﻿#region License
+// Разработано: Коротенко Владимиром Николаевичем (Vladimir N. Korotenko)
+// email: koroten@ya.ru
+// skype:vladimir-korotenko 
+// https://vkorotenko.ru
+// Создано:  16.04.2019 21:27
+#endregion
 
 using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
 
 namespace Bottom.Droid
 {
-    [Activity(Label = "Bottom", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    /// <summary>
+    /// Entry point for adroid application. Platform specific.
+    /// </summary>
+    [Activity(Label = "Bottom", 
+        Icon = "@mipmap/icon", 
+        RoundIcon = "@mipmap/icon",
+        Theme = "@style/MainTheme", 
+        MainLauncher = true, 
+        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        /// <summary>
+        /// Handler for event Create
+        /// </summary>
+        /// <param name="savedInstanceState"></param>
         protected override void OnCreate(Bundle savedInstanceState)
         {
             TabLayoutResource = Resource.Layout.Tabbar;

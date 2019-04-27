@@ -23,11 +23,11 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+        <StackLayout  VerticalOptions="FillAndExpand" HorizontalOptions="Fill" Padding="10">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                    <Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" />
-                </ContentView>
+                <Frame CornerRadius="60" Margin="0" Padding="0" IsClippedToBounds="True">
+                    <Image Aspect="AspectFill" Source="avatar.jpg" />
+                </Frame>
             </StackLayout>
         </StackLayout>
         <ScrollView Grid.Row="1">

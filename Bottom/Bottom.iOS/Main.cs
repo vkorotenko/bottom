@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Foundation;
+﻿#region License
+// Разработано: Коротенко Владимиром Николаевичем (Vladimir N. Korotenko)
+// email: koroten@ya.ru
+// skype:vladimir-korotenko 
+// https://vkorotenko.ru
+// Создано:  16.04.2019 21:27
+#endregion
 using UIKit;
 
 namespace Bottom.iOS
 {
+    /// <summary>
+    /// iOS entry
+    /// </summary>
     public class Application
     {
         // This is the main entry point of the application.

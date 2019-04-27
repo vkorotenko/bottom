@@ -1,0 +1,341 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bottom</name>
+    </assembly>
+    <members>
+        <member name="T:Bottom.App">
+            <summary>
+            Main application class
+            </summary>
+        </member>
+        <member name="M:Bottom.App.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Bottom.App.OnStart">
+            <summary>
+            OnStart method. Best point to run you code
+            </summary>
+        </member>
+        <member name="M:Bottom.App.OnSleep">
+            <summary>
+            Handle when your app sleeps
+            </summary>
+        </member>
+        <member name="M:Bottom.App.OnResume">
+            <summary>
+            Handle when your app resumes
+            </summary>
+        </member>
+        <member name="T:Bottom.Models.MenuItemType">
+            <summary>
+            Menu item enum
+            </summary>
+        </member>
+        <member name="F:Bottom.Models.MenuItemType.Browse">
+            <summary>Browse page</summary>
+        </member>
+        <member name="F:Bottom.Models.MenuItemType.About">
+            <summary>About page</summary>
+        </member>
+        <member name="T:Bottom.Models.HomeMenuItem">
+            <summary>
+            Home menu item.
+            </summary>
+        </member>
+        <member name="P:Bottom.Models.HomeMenuItem.Id">
+            <summary>
+            Element id
+            </summary>
+        </member>
+        <member name="P:Bottom.Models.HomeMenuItem.Title">
+            <summary>
+            Menu item title
+            </summary>
+        </member>
+        <member name="T:Bottom.Models.Item">
+            <summary>
+            Element class, represent item on main screen
+            </summary>
+        </member>
+        <member name="P:Bottom.Models.Item.Id">
+            <summary>
+            Primary key
+            </summary>
+        </member>
+        <member name="P:Bottom.Models.Item.Text">
+            <summary>
+            Element title
+            </summary>
+        </member>
+        <member name="P:Bottom.Models.Item.Description">
+            <summary>
+            Element description
+            </summary>
+        </member>
+        <member name="T:Bottom.Services.IDataStore`1">
+            <summary>
+            Data store interface
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Bottom.Services.IDataStore`1.AddItemAsync(`0)">
+            <summary>
+            Add element to datastore
+            </summary>
+            <param name="item">Added element</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bottom.Services.IDataStore`1.UpdateItemAsync(`0)">
+            <summary>
+            Update element
+            </summary>
+            <param name="item">Element</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bottom.Services.IDataStore`1.DeleteItemAsync(System.String)">
+            <summary>
+            Delete element
+            </summary>
+            <param name="id">Element</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bottom.Services.IDataStore`1.GetItemAsync(System.String)">
+            <summary>
+            Get element by primary key
+            </summary>
+            <param name="id">Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bottom.Services.IDataStore`1.GetItemsAsync(System.Boolean)">
+            <summary>
+            Get all elements
+            </summary>
+            <param name="forceRefresh">Forse refresh datasorce.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Bottom.Services.MockDataStore">
+            <summary>
+            Fake data source
+            </summary>
+        </member>
+        <member name="M:Bottom.Services.MockDataStore.#ctor">
+            <summary>
+            Default constructor. Fill datasorce 
+            </summary>
+        </member>
+        <member name="M:Bottom.Services.MockDataStore.AddItemAsync(Bottom.Models.Item)">
+            <summary>
+             Add element to datasource
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bottom.Services.MockDataStore.UpdateItemAsync(Bottom.Models.Item)">
+            <summary>
+            Update element
+            </summary>
+            <param name="item">Element</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bottom.Services.MockDataStore.DeleteItemAsync(System.String)">
+            <summary>
+            Delete element
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bottom.Services.MockDataStore.GetItemAsync(System.String)">
+            <summary>
+            Get element by id
+            </summary>
+            <param name="id">Id of element</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bottom.Services.MockDataStore.GetItemsAsync(System.Boolean)">
+            <summary>
+            Get all items
+            </summary>
+            <param name="forceRefresh">Get data forse</param>
+            <returns></returns>
+        </member>
+        <member name="T:Bottom.ViewModels.AboutViewModel">
+            <summary>
+            About view model
+            </summary>
+        </member>
+        <member name="M:Bottom.ViewModels.AboutViewModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="P:Bottom.ViewModels.AboutViewModel.OpenWebCommand">
+            <summary>
+            Open me home site page
+            </summary>
+        </member>
+        <member name="T:Bottom.ViewModels.BaseViewModel">
+            <summary>
+            Base implementation of viewmodel's in application
+            </summary>
+        </member>
+        <member name="P:Bottom.ViewModels.BaseViewModel.DataStore">
+            <summary>
+            Data store of view model
+            </summary>
+        </member>
+        <member name="P:Bottom.ViewModels.BaseViewModel.IsBusy">
+            <summary>
+            Model temporary busy
+            </summary>
+        </member>
+        <member name="P:Bottom.ViewModels.BaseViewModel.Title">
+            <summary>
+            Title
+            </summary>
+        </member>
+        <member name="M:Bottom.ViewModels.BaseViewModel.SetProperty``1(``0@,``0,System.String,System.Action)">
+            <summary>
+            Magic of data binding
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="backingStore">Where to store value</param>
+            <param name="value">Value</param>
+            <param name="propertyName">Property name</param>
+            <param name="onChanged">Handler</param>
+            <returns></returns>
+        </member>
+        <member name="E:Bottom.ViewModels.BaseViewModel.PropertyChanged">
+            <summary>
+            PropertyChanged event
+            </summary>
+        </member>
+        <member name="M:Bottom.ViewModels.BaseViewModel.OnPropertyChanged(System.String)">
+            <summary>
+            Handler for <see cref="E:Bottom.ViewModels.BaseViewModel.PropertyChanged"/>
+            </summary>
+            <param name="propertyName">Property name</param>
+        </member>
+        <member name="T:Bottom.ViewModels.ItemDetailViewModel">
+            <summary>
+            Detail view model
+            </summary>
+        </member>
+        <member name="P:Bottom.ViewModels.ItemDetailViewModel.Item">
+            <summary>
+            Item
+            </summary>
+        </member>
+        <member name="M:Bottom.ViewModels.ItemDetailViewModel.#ctor(Bottom.Models.Item)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="item">Element</param>
+        </member>
+        <member name="T:Bottom.ViewModels.ItemsViewModel">
+            <summary>
+            View model for items
+            </summary>
+        </member>
+        <member name="P:Bottom.ViewModels.ItemsViewModel.Items">
+            <summary>
+            Items
+            </summary>
+        </member>
+        <member name="P:Bottom.ViewModels.ItemsViewModel.LoadItemsCommand">
+            <summary>
+            Load data command
+            </summary>
+        </member>
+        <member name="M:Bottom.ViewModels.ItemsViewModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Bottom.Views.AboutPage">
+            <summary>
+            About page
+            </summary>
+        </member>
+        <member name="M:Bottom.Views.AboutPage.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Bottom.Views.ItemDetailPage">
+            <summary>
+            Detail page
+            </summary>
+        </member>
+        <member name="M:Bottom.Views.ItemDetailPage.#ctor(Bottom.ViewModels.ItemDetailViewModel)">
+            <summary>
+            Constructor with view model
+            </summary>
+            <param name="viewModel">View model</param>
+        </member>
+        <member name="M:Bottom.Views.ItemDetailPage.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Bottom.Views.ItemsPage">
+            <summary>
+            Items page
+            </summary>
+        </member>
+        <member name="M:Bottom.Views.ItemsPage.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Bottom.Views.ItemsPage.OnAppearing">
+            <summary>
+            Handler to load page
+            </summary>
+        </member>
+        <member name="T:Bottom.Views.MainPage">
+            <summary>
+            Main page
+            </summary>
+        </member>
+        <member name="M:Bottom.Views.MainPage.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Bottom.Views.MainPage.NavigateFromMenu(System.Int32)">
+            <summary>
+            Show selected page
+            </summary>
+            <param name="id">Id from menu</param>
+            <returns></returns>
+        </member>
+        <member name="T:Bottom.Views.MenuPage">
+            <summary>
+            Menu page
+            </summary>
+        </member>
+        <member name="M:Bottom.Views.MenuPage.#ctor">
+            <summary>
+            Initialize menu and select first item.
+            </summary>
+        </member>
+        <member name="T:Bottom.Views.NewItemPage">
+            <summary>
+            New item page
+            </summary>
+        </member>
+        <member name="P:Bottom.Views.NewItemPage.Item">
+            <summary>
+            Item
+            </summary>
+        </member>
+        <member name="M:Bottom.Views.NewItemPage.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+    </members>
+</doc>

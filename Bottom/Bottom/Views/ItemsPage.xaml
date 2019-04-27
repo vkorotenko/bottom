@@ -1,45 +1,83 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:code="clr-namespace:Bottom.Code;assembly=Bottom"
              x:Class="Bottom.Views.ItemsPage"
-              Title="{Binding Title}"
+             Title="{Binding Title}"
              x:Name="BrowseItemsPage">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="AddItem_Clicked">
-            <ToolbarItem.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="UWP" Value="add.png"/>
-                </OnPlatform>
-            </ToolbarItem.Icon>
-        </ToolbarItem>
-    </ContentPage.ToolbarItems>
-
-    <StackLayout>
-        <ListView x:Name="ItemsListView"
-                ItemsSource="{Binding Items}"
-                VerticalOptions="FillAndExpand"
-                HasUnevenRows="true"
-                RefreshCommand="{Binding LoadItemsCommand}"
-                IsPullToRefreshEnabled="true"
-                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                CachingStrategy="RecycleElement"
-                ItemSelected="OnItemSelected">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding Text}" 
-                                LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
-                            <Label Text="{Binding Description}" 
-                                LineBreakMode="NoWrap"
-                                Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" />
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <AbsoluteLayout Grid.Row="0">
+            <ListView x:Name="ItemsListView"
+                      AbsoluteLayout.LayoutFlags="All"
+                      AbsoluteLayout.LayoutBounds="0,1,1,1"
+                      VerticalOptions="FillAndExpand"
+                      ItemsSource="{Binding Items}"
+                      RefreshCommand="{Binding LoadItemsCommand}"
+                      IsPullToRefreshEnabled="true"
+                      ItemSelected="OnItemSelected"
+                      IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                      CachingStrategy="RecycleElement"
+                      HasUnevenRows="True"
+                      SeparatorColor="Black"
+                      RowHeight="50">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid BackgroundColor="White">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="32" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Image Source="icon_order.png"
+                                       Grid.Column="0"
+                                       Grid.Row="0"
+                                       Grid.RowSpan="2" />
+                                <Label Grid.Column="1" Grid.Row="0"
+                                       FontAttributes="None" TextColor="Black"
+                                       LineBreakMode="TailTruncation"
+                                       Text="{Binding Text}" />
+                                <Label Grid.Row="1" Grid.Column="1" VerticalOptions="Start"
+                                       FontSize="12"
+                                       Text="{Binding Description}"
+                                       TextColor="#196b90" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ImageButton  
+                Source="float_button.png"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                AbsoluteLayout.LayoutBounds="1.0,1.0,-1,-1"
+                Margin="10"
+                HeightRequest="60" 
+                CornerRadius="30"
+                BackgroundColor="{StaticResource NavigationPrimary}"
+                IsOpaque="True"
+                Clicked="AddItem_Clicked"
+                WidthRequest="60" />
+            <ActivityIndicator IsRunning="{Binding Busy}"
+                               IsVisible="{Binding Busy}"
+                               AbsoluteLayout.LayoutFlags="PositionProportional"
+                               AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                               VerticalOptions="CenterAndExpand"
+                               HorizontalOptions="CenterAndExpand">
+                <ActivityIndicator.WidthRequest>
+                    <OnPlatform x:TypeArguments="x:Double" iOS="100" Android="100" />
+                </ActivityIndicator.WidthRequest>
+                <ActivityIndicator.Color>
+                    <OnPlatform x:TypeArguments="Color"
+                                iOS="#2499CE" Android="#2499CE" />
+                </ActivityIndicator.Color>
+            </ActivityIndicator>
+        </AbsoluteLayout>
+    </Grid>
 </ContentPage>

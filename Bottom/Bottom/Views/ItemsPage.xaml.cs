@@ -1,28 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using Bottom.Models;
+using Bottom.ViewModels;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-using Bottom.Models;
-using Bottom.Views;
-using Bottom.ViewModels;
-
 namespace Bottom.Views
 {
+    /// <summary>
+    /// Items page
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ItemsPage : ContentPage
     {
-        ItemsViewModel viewModel;
+        ItemsViewModel _vm;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public ItemsPage()
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new ItemsViewModel();
+            BindingContext = _vm = new ItemsViewModel();
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
@@ -41,13 +40,15 @@ namespace Bottom.Views
         {
             await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
         }
-
+        /// <summary>
+        /// Handler to load page
+        /// </summary>
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
-            if (viewModel.Items.Count == 0)
-                viewModel.LoadItemsCommand.Execute(null);
+            if (_vm.Items.Count == 0)
+                _vm.LoadItemsCommand.Execute(null);
         }
     }
 }

@@ -7,7 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bottom.Android", "Bottom\Bo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bottom.iOS", "Bottom\Bottom.iOS\Bottom.iOS.csproj", "{A244D754-B1CE-46FC-836E-20C2CBA3B670}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bottom", "Bottom\Bottom\Bottom.csproj", "{D67F7640-465F-4B00-ADE7-C0B13CDADBBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bottom", "Bottom\Bottom\Bottom.csproj", "{D67F7640-465F-4B00-ADE7-C0B13CDADBBA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Art", "Art", "{01BBC476-05B3-43B5-92F3-9A6047F3440E}"
+	ProjectSection(SolutionItems) = preProject
+		Art\pero-udachi-large.jpg = Art\pero-udachi-large.jpg
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
